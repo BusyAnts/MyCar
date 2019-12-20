@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cimc.car.mapper.SdkInterfaceMapper">
+  <resultMap id="BaseResultMap" type="com.cimc.car.domain.SdkInterface">
+    <!--@mbg.generated-->
+    <!--@Table sdk_interface-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="type_id" jdbcType="INTEGER" property="typeId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="inter_desc" jdbcType="VARCHAR" property="interDesc" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="success" jdbcType="VARCHAR" property="success" />
+    <result column="error" jdbcType="VARCHAR" property="error" />
+    <result column="request_type" jdbcType="VARCHAR" property="requestType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, type_id, `name`, inter_desc, url, success, error, request_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sdk_interface
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from sdk_interface
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.SdkInterface" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sdk_interface (type_id, `name`, inter_desc, 
+      url, success, error, 
+      request_type)
+    values (#{typeId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{interDesc,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{success,jdbcType=VARCHAR}, #{error,jdbcType=VARCHAR}, 
+      #{requestType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.SdkInterface" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sdk_interface
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="typeId != null">
+        type_id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="interDesc != null">
+        inter_desc,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="success != null">
+        success,
+      </if>
+      <if test="error != null">
+        error,
+      </if>
+      <if test="requestType != null">
+        request_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="typeId != null">
+        #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="interDesc != null">
+        #{interDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="success != null">
+        #{success,jdbcType=VARCHAR},
+      </if>
+      <if test="error != null">
+        #{error,jdbcType=VARCHAR},
+      </if>
+      <if test="requestType != null">
+        #{requestType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cimc.car.domain.SdkInterface">
+    <!--@mbg.generated-->
+    update sdk_interface
+    <set>
+      <if test="typeId != null">
+        type_id = #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="interDesc != null">
+        inter_desc = #{interDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="success != null">
+        success = #{success,jdbcType=VARCHAR},
+      </if>
+      <if test="error != null">
+        error = #{error,jdbcType=VARCHAR},
+      </if>
+      <if test="requestType != null">
+        request_type = #{requestType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cimc.car.domain.SdkInterface">
+    <!--@mbg.generated-->
+    update sdk_interface
+    set type_id = #{typeId,jdbcType=INTEGER},
+      `name` = #{name,jdbcType=VARCHAR},
+      inter_desc = #{interDesc,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      success = #{success,jdbcType=VARCHAR},
+      error = #{error,jdbcType=VARCHAR},
+      request_type = #{requestType,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

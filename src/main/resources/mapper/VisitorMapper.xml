@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cimc.car.mapper.VisitorMapper">
+  <resultMap id="BaseResultMap" type="com.cimc.car.domain.Visitor">
+    <!--@mbg.generated-->
+    <!--@Table visitor-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="visitor_guid" jdbcType="VARCHAR" property="visitorGuid" />
+    <result column="first_visit_time" jdbcType="BIGINT" property="firstVisitTime" />
+    <result column="entry_url" jdbcType="VARCHAR" property="entryUrl" />
+    <result column="visitor_ip" jdbcType="VARCHAR" property="visitorIp" />
+    <result column="visitor_device" jdbcType="VARCHAR" property="visitorDevice" />
+    <result column="visitor_channel" jdbcType="VARCHAR" property="visitorChannel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, visitor_guid, first_visit_time, entry_url, visitor_ip, visitor_device, visitor_channel
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from visitor
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from visitor
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.Visitor" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into visitor (visitor_guid, first_visit_time, entry_url, 
+      visitor_ip, visitor_device, visitor_channel
+      )
+    values (#{visitorGuid,jdbcType=VARCHAR}, #{firstVisitTime,jdbcType=BIGINT}, #{entryUrl,jdbcType=VARCHAR}, 
+      #{visitorIp,jdbcType=VARCHAR}, #{visitorDevice,jdbcType=VARCHAR}, #{visitorChannel,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.Visitor" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into visitor
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="visitorGuid != null">
+        visitor_guid,
+      </if>
+      <if test="firstVisitTime != null">
+        first_visit_time,
+      </if>
+      <if test="entryUrl != null">
+        entry_url,
+      </if>
+      <if test="visitorIp != null">
+        visitor_ip,
+      </if>
+      <if test="visitorDevice != null">
+        visitor_device,
+      </if>
+      <if test="visitorChannel != null">
+        visitor_channel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="visitorGuid != null">
+        #{visitorGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="firstVisitTime != null">
+        #{firstVisitTime,jdbcType=BIGINT},
+      </if>
+      <if test="entryUrl != null">
+        #{entryUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorIp != null">
+        #{visitorIp,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorDevice != null">
+        #{visitorDevice,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorChannel != null">
+        #{visitorChannel,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cimc.car.domain.Visitor">
+    <!--@mbg.generated-->
+    update visitor
+    <set>
+      <if test="visitorGuid != null">
+        visitor_guid = #{visitorGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="firstVisitTime != null">
+        first_visit_time = #{firstVisitTime,jdbcType=BIGINT},
+      </if>
+      <if test="entryUrl != null">
+        entry_url = #{entryUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorIp != null">
+        visitor_ip = #{visitorIp,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorDevice != null">
+        visitor_device = #{visitorDevice,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorChannel != null">
+        visitor_channel = #{visitorChannel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cimc.car.domain.Visitor">
+    <!--@mbg.generated-->
+    update visitor
+    set visitor_guid = #{visitorGuid,jdbcType=VARCHAR},
+      first_visit_time = #{firstVisitTime,jdbcType=BIGINT},
+      entry_url = #{entryUrl,jdbcType=VARCHAR},
+      visitor_ip = #{visitorIp,jdbcType=VARCHAR},
+      visitor_device = #{visitorDevice,jdbcType=VARCHAR},
+      visitor_channel = #{visitorChannel,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

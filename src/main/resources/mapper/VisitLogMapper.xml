@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cimc.car.mapper.VisitLogMapper">
+  <resultMap id="BaseResultMap" type="com.cimc.car.domain.VisitLog">
+    <!--@mbg.generated-->
+    <!--@Table visit_log-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="visitor_id" jdbcType="BIGINT" property="visitorId" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="visit_url" jdbcType="VARCHAR" property="visitUrl" />
+    <result column="visit_ip" jdbcType="VARCHAR" property="visitIp" />
+    <result column="visit_device" jdbcType="VARCHAR" property="visitDevice" />
+    <result column="visit_source" jdbcType="VARCHAR" property="visitSource" />
+    <result column="enter_time" jdbcType="BIGINT" property="enterTime" />
+    <result column="exit_time" jdbcType="BIGINT" property="exitTime" />
+    <result column="stay" jdbcType="BIGINT" property="stay" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, visitor_id, member_id, visit_url, visit_ip, visit_device, visit_source, enter_time, 
+    exit_time, `stay`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from visit_log
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from visit_log
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.VisitLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into visit_log (visitor_id, member_id, visit_url, 
+      visit_ip, visit_device, visit_source, 
+      enter_time, exit_time, `stay`
+      )
+    values (#{visitorId,jdbcType=BIGINT}, #{memberId,jdbcType=BIGINT}, #{visitUrl,jdbcType=VARCHAR}, 
+      #{visitIp,jdbcType=VARCHAR}, #{visitDevice,jdbcType=VARCHAR}, #{visitSource,jdbcType=VARCHAR}, 
+      #{enterTime,jdbcType=BIGINT}, #{exitTime,jdbcType=BIGINT}, #{stay,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.VisitLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into visit_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="visitorId != null">
+        visitor_id,
+      </if>
+      <if test="memberId != null">
+        member_id,
+      </if>
+      <if test="visitUrl != null">
+        visit_url,
+      </if>
+      <if test="visitIp != null">
+        visit_ip,
+      </if>
+      <if test="visitDevice != null">
+        visit_device,
+      </if>
+      <if test="visitSource != null">
+        visit_source,
+      </if>
+      <if test="enterTime != null">
+        enter_time,
+      </if>
+      <if test="exitTime != null">
+        exit_time,
+      </if>
+      <if test="stay != null">
+        `stay`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="visitorId != null">
+        #{visitorId,jdbcType=BIGINT},
+      </if>
+      <if test="memberId != null">
+        #{memberId,jdbcType=BIGINT},
+      </if>
+      <if test="visitUrl != null">
+        #{visitUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="visitIp != null">
+        #{visitIp,jdbcType=VARCHAR},
+      </if>
+      <if test="visitDevice != null">
+        #{visitDevice,jdbcType=VARCHAR},
+      </if>
+      <if test="visitSource != null">
+        #{visitSource,jdbcType=VARCHAR},
+      </if>
+      <if test="enterTime != null">
+        #{enterTime,jdbcType=BIGINT},
+      </if>
+      <if test="exitTime != null">
+        #{exitTime,jdbcType=BIGINT},
+      </if>
+      <if test="stay != null">
+        #{stay,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cimc.car.domain.VisitLog">
+    <!--@mbg.generated-->
+    update visit_log
+    <set>
+      <if test="visitorId != null">
+        visitor_id = #{visitorId,jdbcType=BIGINT},
+      </if>
+      <if test="memberId != null">
+        member_id = #{memberId,jdbcType=BIGINT},
+      </if>
+      <if test="visitUrl != null">
+        visit_url = #{visitUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="visitIp != null">
+        visit_ip = #{visitIp,jdbcType=VARCHAR},
+      </if>
+      <if test="visitDevice != null">
+        visit_device = #{visitDevice,jdbcType=VARCHAR},
+      </if>
+      <if test="visitSource != null">
+        visit_source = #{visitSource,jdbcType=VARCHAR},
+      </if>
+      <if test="enterTime != null">
+        enter_time = #{enterTime,jdbcType=BIGINT},
+      </if>
+      <if test="exitTime != null">
+        exit_time = #{exitTime,jdbcType=BIGINT},
+      </if>
+      <if test="stay != null">
+        `stay` = #{stay,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cimc.car.domain.VisitLog">
+    <!--@mbg.generated-->
+    update visit_log
+    set visitor_id = #{visitorId,jdbcType=BIGINT},
+      member_id = #{memberId,jdbcType=BIGINT},
+      visit_url = #{visitUrl,jdbcType=VARCHAR},
+      visit_ip = #{visitIp,jdbcType=VARCHAR},
+      visit_device = #{visitDevice,jdbcType=VARCHAR},
+      visit_source = #{visitSource,jdbcType=VARCHAR},
+      enter_time = #{enterTime,jdbcType=BIGINT},
+      exit_time = #{exitTime,jdbcType=BIGINT},
+      `stay` = #{stay,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

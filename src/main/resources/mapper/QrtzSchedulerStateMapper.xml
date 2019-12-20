@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cimc.car.mapper.QrtzSchedulerStateMapper">
+  <resultMap id="BaseResultMap" type="com.cimc.car.domain.QrtzSchedulerState">
+    <!--@mbg.generated-->
+    <!--@Table qrtz_scheduler_state-->
+    <id column="SCHED_NAME" jdbcType="VARCHAR" property="schedName" />
+    <id column="INSTANCE_NAME" jdbcType="VARCHAR" property="instanceName" />
+    <result column="LAST_CHECKIN_TIME" jdbcType="BIGINT" property="lastCheckinTime" />
+    <result column="CHECKIN_INTERVAL" jdbcType="INTEGER" property="checkinInterval" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    SCHED_NAME, INSTANCE_NAME, LAST_CHECKIN_TIME, CHECKIN_INTERVAL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from qrtz_scheduler_state
+    where SCHED_NAME = #{schedName,jdbcType=VARCHAR}
+      and INSTANCE_NAME = #{instanceName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--@mbg.generated-->
+    delete from qrtz_scheduler_state
+    where SCHED_NAME = #{schedName,jdbcType=VARCHAR}
+      and INSTANCE_NAME = #{instanceName,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.cimc.car.domain.QrtzSchedulerState">
+    <!--@mbg.generated-->
+    insert into qrtz_scheduler_state (SCHED_NAME, INSTANCE_NAME, LAST_CHECKIN_TIME, 
+      CHECKIN_INTERVAL)
+    values (#{schedName,jdbcType=VARCHAR}, #{instanceName,jdbcType=VARCHAR}, #{lastCheckinTime,jdbcType=BIGINT}, 
+      #{checkinInterval,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cimc.car.domain.QrtzSchedulerState">
+    <!--@mbg.generated-->
+    insert into qrtz_scheduler_state
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="schedName != null">
+        SCHED_NAME,
+      </if>
+      <if test="instanceName != null">
+        INSTANCE_NAME,
+      </if>
+      <if test="lastCheckinTime != null">
+        LAST_CHECKIN_TIME,
+      </if>
+      <if test="checkinInterval != null">
+        CHECKIN_INTERVAL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="schedName != null">
+        #{schedName,jdbcType=VARCHAR},
+      </if>
+      <if test="instanceName != null">
+        #{instanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="lastCheckinTime != null">
+        #{lastCheckinTime,jdbcType=BIGINT},
+      </if>
+      <if test="checkinInterval != null">
+        #{checkinInterval,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cimc.car.domain.QrtzSchedulerState">
+    <!--@mbg.generated-->
+    update qrtz_scheduler_state
+    <set>
+      <if test="lastCheckinTime != null">
+        LAST_CHECKIN_TIME = #{lastCheckinTime,jdbcType=BIGINT},
+      </if>
+      <if test="checkinInterval != null">
+        CHECKIN_INTERVAL = #{checkinInterval,jdbcType=INTEGER},
+      </if>
+    </set>
+    where SCHED_NAME = #{schedName,jdbcType=VARCHAR}
+      and INSTANCE_NAME = #{instanceName,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cimc.car.domain.QrtzSchedulerState">
+    <!--@mbg.generated-->
+    update qrtz_scheduler_state
+    set LAST_CHECKIN_TIME = #{lastCheckinTime,jdbcType=BIGINT},
+      CHECKIN_INTERVAL = #{checkinInterval,jdbcType=INTEGER}
+    where SCHED_NAME = #{schedName,jdbcType=VARCHAR}
+      and INSTANCE_NAME = #{instanceName,jdbcType=VARCHAR}
+  </update>
+</mapper>

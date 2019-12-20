@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cimc.car.mapper.ArticleActionMapper">
+  <resultMap id="BaseResultMap" type="com.cimc.car.domain.ArticleAction">
+    <!--@mbg.generated-->
+    <!--@Table article_action-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="article_id" jdbcType="BIGINT" property="articleId" />
+    <result column="operator_uid" jdbcType="INTEGER" property="operatorUid" />
+    <result column="operator_username" jdbcType="VARCHAR" property="operatorUsername" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="operate_type" jdbcType="TINYINT" property="operateType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, article_id, operator_uid, operator_username, create_time, content, operate_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from article_action
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from article_action
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.ArticleAction" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into article_action (article_id, operator_uid, operator_username, 
+      create_time, content, operate_type
+      )
+    values (#{articleId,jdbcType=BIGINT}, #{operatorUid,jdbcType=INTEGER}, #{operatorUsername,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=BIGINT}, #{content,jdbcType=VARCHAR}, #{operateType,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.ArticleAction" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into article_action
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="articleId != null">
+        article_id,
+      </if>
+      <if test="operatorUid != null">
+        operator_uid,
+      </if>
+      <if test="operatorUsername != null">
+        operator_username,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="operateType != null">
+        operate_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="articleId != null">
+        #{articleId,jdbcType=BIGINT},
+      </if>
+      <if test="operatorUid != null">
+        #{operatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="operatorUsername != null">
+        #{operatorUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="operateType != null">
+        #{operateType,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cimc.car.domain.ArticleAction">
+    <!--@mbg.generated-->
+    update article_action
+    <set>
+      <if test="articleId != null">
+        article_id = #{articleId,jdbcType=BIGINT},
+      </if>
+      <if test="operatorUid != null">
+        operator_uid = #{operatorUid,jdbcType=INTEGER},
+      </if>
+      <if test="operatorUsername != null">
+        operator_username = #{operatorUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="operateType != null">
+        operate_type = #{operateType,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cimc.car.domain.ArticleAction">
+    <!--@mbg.generated-->
+    update article_action
+    set article_id = #{articleId,jdbcType=BIGINT},
+      operator_uid = #{operatorUid,jdbcType=INTEGER},
+      operator_username = #{operatorUsername,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=BIGINT},
+      content = #{content,jdbcType=VARCHAR},
+      operate_type = #{operateType,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

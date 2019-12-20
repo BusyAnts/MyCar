@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cimc.car.mapper.AdminMenuAuthMapper">
+  <resultMap id="BaseResultMap" type="com.cimc.car.domain.AdminMenuAuth">
+    <!--@mbg.generated-->
+    <!--@Table admin_menu_auth-->
+    <id column="id" jdbcType="SMALLINT" property="id" />
+    <result column="controller" jdbcType="VARCHAR" property="controller" />
+    <result column="action" jdbcType="VARCHAR" property="action" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="classname" jdbcType="VARCHAR" property="classname" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="parent_id" jdbcType="SMALLINT" property="parentId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, controller, `action`, `name`, classname, `status`, sort, `type`, parent_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from admin_menu_auth
+    where id = #{id,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    <!--@mbg.generated-->
+    delete from admin_menu_auth
+    where id = #{id,jdbcType=SMALLINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.AdminMenuAuth" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into admin_menu_auth (controller, `action`, `name`, 
+      classname, `status`, sort, 
+      `type`, parent_id)
+    values (#{controller,jdbcType=VARCHAR}, #{action,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{classname,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{sort,jdbcType=INTEGER}, 
+      #{type,jdbcType=TINYINT}, #{parentId,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.AdminMenuAuth" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into admin_menu_auth
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="controller != null">
+        controller,
+      </if>
+      <if test="action != null">
+        `action`,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="classname != null">
+        classname,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="controller != null">
+        #{controller,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="classname != null">
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cimc.car.domain.AdminMenuAuth">
+    <!--@mbg.generated-->
+    update admin_menu_auth
+    <set>
+      <if test="controller != null">
+        controller = #{controller,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        `action` = #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="classname != null">
+        classname = #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cimc.car.domain.AdminMenuAuth">
+    <!--@mbg.generated-->
+    update admin_menu_auth
+    set controller = #{controller,jdbcType=VARCHAR},
+      `action` = #{action,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      classname = #{classname,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=TINYINT},
+      sort = #{sort,jdbcType=INTEGER},
+      `type` = #{type,jdbcType=TINYINT},
+      parent_id = #{parentId,jdbcType=SMALLINT}
+    where id = #{id,jdbcType=SMALLINT}
+  </update>
+</mapper>

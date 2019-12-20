@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cimc.car.mapper.SdkInterfaceInfoMapper">
+  <resultMap id="BaseResultMap" type="com.cimc.car.domain.SdkInterfaceInfo">
+    <!--@mbg.generated-->
+    <!--@Table sdk_interface_info-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="activity_id" jdbcType="INTEGER" property="activityId" />
+    <result column="cars_id" jdbcType="VARCHAR" property="carsId" />
+    <result column="activity_key" jdbcType="VARCHAR" property="activityKey" />
+    <result column="dealer" jdbcType="VARCHAR" property="dealer" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, activity_id, cars_id, activity_key, dealer
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sdk_interface_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from sdk_interface_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.SdkInterfaceInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sdk_interface_info (activity_id, cars_id, activity_key, 
+      dealer)
+    values (#{activityId,jdbcType=INTEGER}, #{carsId,jdbcType=VARCHAR}, #{activityKey,jdbcType=VARCHAR}, 
+      #{dealer,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.SdkInterfaceInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sdk_interface_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="activityId != null">
+        activity_id,
+      </if>
+      <if test="carsId != null">
+        cars_id,
+      </if>
+      <if test="activityKey != null">
+        activity_key,
+      </if>
+      <if test="dealer != null">
+        dealer,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="activityId != null">
+        #{activityId,jdbcType=INTEGER},
+      </if>
+      <if test="carsId != null">
+        #{carsId,jdbcType=VARCHAR},
+      </if>
+      <if test="activityKey != null">
+        #{activityKey,jdbcType=VARCHAR},
+      </if>
+      <if test="dealer != null">
+        #{dealer,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cimc.car.domain.SdkInterfaceInfo">
+    <!--@mbg.generated-->
+    update sdk_interface_info
+    <set>
+      <if test="activityId != null">
+        activity_id = #{activityId,jdbcType=INTEGER},
+      </if>
+      <if test="carsId != null">
+        cars_id = #{carsId,jdbcType=VARCHAR},
+      </if>
+      <if test="activityKey != null">
+        activity_key = #{activityKey,jdbcType=VARCHAR},
+      </if>
+      <if test="dealer != null">
+        dealer = #{dealer,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cimc.car.domain.SdkInterfaceInfo">
+    <!--@mbg.generated-->
+    update sdk_interface_info
+    set activity_id = #{activityId,jdbcType=INTEGER},
+      cars_id = #{carsId,jdbcType=VARCHAR},
+      activity_key = #{activityKey,jdbcType=VARCHAR},
+      dealer = #{dealer,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

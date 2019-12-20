@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cimc.car.mapper.CarMakeMapper">
+  <resultMap id="BaseResultMap" type="com.cimc.car.domain.CarMake">
+    <!--@mbg.generated-->
+    <!--@Table car_make-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="brand_id" jdbcType="INTEGER" property="brandId" />
+    <result column="brand_name" jdbcType="VARCHAR" property="brandName" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="other_name" jdbcType="VARCHAR" property="otherName" />
+    <result column="english_name" jdbcType="VARCHAR" property="englishName" />
+    <result column="manufacturer_id" jdbcType="INTEGER" property="manufacturerId" />
+    <result column="country_id" jdbcType="INTEGER" property="countryId" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="website" jdbcType="VARCHAR" property="website" />
+    <result column="logo_url" jdbcType="VARCHAR" property="logoUrl" />
+    <result column="spell" jdbcType="VARCHAR" property="spell" />
+    <result column="introduction" jdbcType="VARCHAR" property="introduction" />
+    <result column="is_enabled" jdbcType="TINYINT" property="isEnabled" />
+    <result column="is_removed" jdbcType="TINYINT" property="isRemoved" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    <result column="update_time" jdbcType="BIGINT" property="updateTime" />
+    <result column="sync_time" jdbcType="BIGINT" property="syncTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, brand_id, brand_name, `name`, other_name, english_name, manufacturer_id, country_id, 
+    phone, website, logo_url, spell, introduction, is_enabled, is_removed, create_time, 
+    update_time, sync_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from car_make
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from car_make
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.CarMake" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into car_make (brand_id, brand_name, `name`, 
+      other_name, english_name, manufacturer_id, 
+      country_id, phone, website, 
+      logo_url, spell, introduction, 
+      is_enabled, is_removed, create_time, 
+      update_time, sync_time)
+    values (#{brandId,jdbcType=INTEGER}, #{brandName,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{otherName,jdbcType=VARCHAR}, #{englishName,jdbcType=VARCHAR}, #{manufacturerId,jdbcType=INTEGER}, 
+      #{countryId,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{website,jdbcType=VARCHAR}, 
+      #{logoUrl,jdbcType=VARCHAR}, #{spell,jdbcType=VARCHAR}, #{introduction,jdbcType=VARCHAR}, 
+      #{isEnabled,jdbcType=TINYINT}, #{isRemoved,jdbcType=TINYINT}, #{createTime,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=BIGINT}, #{syncTime,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.CarMake" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into car_make
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="brandId != null">
+        brand_id,
+      </if>
+      <if test="brandName != null">
+        brand_name,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="otherName != null">
+        other_name,
+      </if>
+      <if test="englishName != null">
+        english_name,
+      </if>
+      <if test="manufacturerId != null">
+        manufacturer_id,
+      </if>
+      <if test="countryId != null">
+        country_id,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="website != null">
+        website,
+      </if>
+      <if test="logoUrl != null">
+        logo_url,
+      </if>
+      <if test="spell != null">
+        spell,
+      </if>
+      <if test="introduction != null">
+        introduction,
+      </if>
+      <if test="isEnabled != null">
+        is_enabled,
+      </if>
+      <if test="isRemoved != null">
+        is_removed,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="syncTime != null">
+        sync_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="brandId != null">
+        #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="brandName != null">
+        #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="otherName != null">
+        #{otherName,jdbcType=VARCHAR},
+      </if>
+      <if test="englishName != null">
+        #{englishName,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturerId != null">
+        #{manufacturerId,jdbcType=INTEGER},
+      </if>
+      <if test="countryId != null">
+        #{countryId,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="website != null">
+        #{website,jdbcType=VARCHAR},
+      </if>
+      <if test="logoUrl != null">
+        #{logoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="spell != null">
+        #{spell,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null">
+        #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="isEnabled != null">
+        #{isEnabled,jdbcType=TINYINT},
+      </if>
+      <if test="isRemoved != null">
+        #{isRemoved,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="syncTime != null">
+        #{syncTime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cimc.car.domain.CarMake">
+    <!--@mbg.generated-->
+    update car_make
+    <set>
+      <if test="brandId != null">
+        brand_id = #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="brandName != null">
+        brand_name = #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="otherName != null">
+        other_name = #{otherName,jdbcType=VARCHAR},
+      </if>
+      <if test="englishName != null">
+        english_name = #{englishName,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturerId != null">
+        manufacturer_id = #{manufacturerId,jdbcType=INTEGER},
+      </if>
+      <if test="countryId != null">
+        country_id = #{countryId,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="website != null">
+        website = #{website,jdbcType=VARCHAR},
+      </if>
+      <if test="logoUrl != null">
+        logo_url = #{logoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="spell != null">
+        spell = #{spell,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null">
+        introduction = #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="isEnabled != null">
+        is_enabled = #{isEnabled,jdbcType=TINYINT},
+      </if>
+      <if test="isRemoved != null">
+        is_removed = #{isRemoved,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="syncTime != null">
+        sync_time = #{syncTime,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cimc.car.domain.CarMake">
+    <!--@mbg.generated-->
+    update car_make
+    set brand_id = #{brandId,jdbcType=INTEGER},
+      brand_name = #{brandName,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      other_name = #{otherName,jdbcType=VARCHAR},
+      english_name = #{englishName,jdbcType=VARCHAR},
+      manufacturer_id = #{manufacturerId,jdbcType=INTEGER},
+      country_id = #{countryId,jdbcType=INTEGER},
+      phone = #{phone,jdbcType=VARCHAR},
+      website = #{website,jdbcType=VARCHAR},
+      logo_url = #{logoUrl,jdbcType=VARCHAR},
+      spell = #{spell,jdbcType=VARCHAR},
+      introduction = #{introduction,jdbcType=VARCHAR},
+      is_enabled = #{isEnabled,jdbcType=TINYINT},
+      is_removed = #{isRemoved,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=BIGINT},
+      sync_time = #{syncTime,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

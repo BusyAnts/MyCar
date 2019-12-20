@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cimc.car.mapper.SdkTempMapper">
+  <resultMap id="BaseResultMap" type="com.cimc.car.domain.SdkTemp">
+    <!--@mbg.generated-->
+    <!--@Table sdk_temp-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="activity_id" jdbcType="INTEGER" property="activityId" />
+    <result column="sdk_path" jdbcType="VARCHAR" property="sdkPath" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    <result column="sdk_name" jdbcType="VARCHAR" property="sdkName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, activity_id, sdk_path, create_time, sdk_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sdk_temp
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from sdk_temp
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.SdkTemp" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sdk_temp (activity_id, sdk_path, create_time, 
+      sdk_name)
+    values (#{activityId,jdbcType=INTEGER}, #{sdkPath,jdbcType=VARCHAR}, #{createTime,jdbcType=BIGINT}, 
+      #{sdkName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.SdkTemp" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sdk_temp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="activityId != null">
+        activity_id,
+      </if>
+      <if test="sdkPath != null">
+        sdk_path,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sdkName != null">
+        sdk_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="activityId != null">
+        #{activityId,jdbcType=INTEGER},
+      </if>
+      <if test="sdkPath != null">
+        #{sdkPath,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="sdkName != null">
+        #{sdkName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cimc.car.domain.SdkTemp">
+    <!--@mbg.generated-->
+    update sdk_temp
+    <set>
+      <if test="activityId != null">
+        activity_id = #{activityId,jdbcType=INTEGER},
+      </if>
+      <if test="sdkPath != null">
+        sdk_path = #{sdkPath,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="sdkName != null">
+        sdk_name = #{sdkName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cimc.car.domain.SdkTemp">
+    <!--@mbg.generated-->
+    update sdk_temp
+    set activity_id = #{activityId,jdbcType=INTEGER},
+      sdk_path = #{sdkPath,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=BIGINT},
+      sdk_name = #{sdkName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

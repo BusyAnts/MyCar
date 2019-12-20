@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cimc.car.mapper.MessageMapper">
+  <resultMap id="BaseResultMap" type="com.cimc.car.domain.Message">
+    <!--@mbg.generated-->
+    <!--@Table message-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="link" jdbcType="VARCHAR" property="link" />
+    <result column="is_schedule" jdbcType="INTEGER" property="isSchedule" />
+    <result column="schedule_time" jdbcType="BIGINT" property="scheduleTime" />
+    <result column="send_time" jdbcType="BIGINT" property="sendTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, content, `type`, link, is_schedule, schedule_time, send_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from message
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from message
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.Message" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into message (content, `type`, link, 
+      is_schedule, schedule_time, send_time
+      )
+    values (#{content,jdbcType=LONGVARCHAR}, #{type,jdbcType=TINYINT}, #{link,jdbcType=VARCHAR}, 
+      #{isSchedule,jdbcType=INTEGER}, #{scheduleTime,jdbcType=BIGINT}, #{sendTime,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.Message" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into message
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="content != null">
+        content,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="link != null">
+        link,
+      </if>
+      <if test="isSchedule != null">
+        is_schedule,
+      </if>
+      <if test="scheduleTime != null">
+        schedule_time,
+      </if>
+      <if test="sendTime != null">
+        send_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="link != null">
+        #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="isSchedule != null">
+        #{isSchedule,jdbcType=INTEGER},
+      </if>
+      <if test="scheduleTime != null">
+        #{scheduleTime,jdbcType=BIGINT},
+      </if>
+      <if test="sendTime != null">
+        #{sendTime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cimc.car.domain.Message">
+    <!--@mbg.generated-->
+    update message
+    <set>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="link != null">
+        link = #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="isSchedule != null">
+        is_schedule = #{isSchedule,jdbcType=INTEGER},
+      </if>
+      <if test="scheduleTime != null">
+        schedule_time = #{scheduleTime,jdbcType=BIGINT},
+      </if>
+      <if test="sendTime != null">
+        send_time = #{sendTime,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cimc.car.domain.Message">
+    <!--@mbg.generated-->
+    update message
+    set content = #{content,jdbcType=LONGVARCHAR},
+      `type` = #{type,jdbcType=TINYINT},
+      link = #{link,jdbcType=VARCHAR},
+      is_schedule = #{isSchedule,jdbcType=INTEGER},
+      schedule_time = #{scheduleTime,jdbcType=BIGINT},
+      send_time = #{sendTime,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

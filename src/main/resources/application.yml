@@ -1,0 +1,41 @@
+server:
+  port: 8080
+  tomcat:
+    max-threads: 1000
+    min-spare-threads: 30
+
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: chenZhen
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5  # 初始化连接大小
+      max-active: 20  # 最大连接数
+      min-idle: 10    # 最小空闲连接数
+      max-wait: 60000  # 配置获取连接等待超时的时间
+      time-between-eviction-runs-millis: 2000  # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      min-evictable-idle-time-millis: 600000  # 配置一个连接在池中最小生存的时间，单位是毫秒
+      max-evictable-idle-time-millis: 900000  # 配置一个连接在池中最大生存的时间，单位是毫秒
+      test-while-idle: true  # 当程序请求连接，连接池在分配连接时，是否先检查该连接是否有效。(高效)
+      test-on-borrow: false  # 程序连接时，进行连接有效性检查（低效，影响性能）
+      test-on-return: false  # 程序返还连接时，进行连接有效性检查（低效，影响性能）
+      keep-alive: true  # 空闲时长超过min-evictable-idle-time-millis的值，则会执行validationQuery指定的SQL，保持连接
+      validation-query: SELECT 1 FROM DUAL  # 检查池中的连接是否仍可用的SQL语句
+      pool-prepared-statements: true  # 缓存preparedStatement
+      max-pool-prepared-statement-per-connection-size: 20  # 每个连接最多缓存多少个SQL
+      filter:
+        stat:
+          enabled: true  # 配置监控统计拦截的filters，默认true
+          log-slow-sql: true
+          slow-sql-millis: 2000
+      stat-view-servlet:
+        login-username: admin  # 监控后台的账户
+        login-password: admin  # 监控后台的用户名
+        enabled: true  # 启用StatViewServlet（监控页面）默认值为false（考虑到安全问题默认并未启动，如需启用建议设置密码或白名单以保障安全）
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

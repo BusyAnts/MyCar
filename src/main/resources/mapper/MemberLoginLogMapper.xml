@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cimc.car.mapper.MemberLoginLogMapper">
+  <resultMap id="BaseResultMap" type="com.cimc.car.domain.MemberLoginLog">
+    <!--@mbg.generated-->
+    <!--@Table member_login_log-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="login_time" jdbcType="BIGINT" property="loginTime" />
+    <result column="is_first" jdbcType="TINYINT" property="isFirst" />
+    <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, member_id, login_time, is_first, login_ip
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from member_login_log
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from member_login_log
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.MemberLoginLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into member_login_log (member_id, login_time, is_first, 
+      login_ip)
+    values (#{memberId,jdbcType=BIGINT}, #{loginTime,jdbcType=BIGINT}, #{isFirst,jdbcType=TINYINT}, 
+      #{loginIp,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.MemberLoginLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into member_login_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="memberId != null">
+        member_id,
+      </if>
+      <if test="loginTime != null">
+        login_time,
+      </if>
+      <if test="isFirst != null">
+        is_first,
+      </if>
+      <if test="loginIp != null">
+        login_ip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="memberId != null">
+        #{memberId,jdbcType=BIGINT},
+      </if>
+      <if test="loginTime != null">
+        #{loginTime,jdbcType=BIGINT},
+      </if>
+      <if test="isFirst != null">
+        #{isFirst,jdbcType=TINYINT},
+      </if>
+      <if test="loginIp != null">
+        #{loginIp,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cimc.car.domain.MemberLoginLog">
+    <!--@mbg.generated-->
+    update member_login_log
+    <set>
+      <if test="memberId != null">
+        member_id = #{memberId,jdbcType=BIGINT},
+      </if>
+      <if test="loginTime != null">
+        login_time = #{loginTime,jdbcType=BIGINT},
+      </if>
+      <if test="isFirst != null">
+        is_first = #{isFirst,jdbcType=TINYINT},
+      </if>
+      <if test="loginIp != null">
+        login_ip = #{loginIp,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cimc.car.domain.MemberLoginLog">
+    <!--@mbg.generated-->
+    update member_login_log
+    set member_id = #{memberId,jdbcType=BIGINT},
+      login_time = #{loginTime,jdbcType=BIGINT},
+      is_first = #{isFirst,jdbcType=TINYINT},
+      login_ip = #{loginIp,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

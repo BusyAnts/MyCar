@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cimc.car.mapper.MemberCarMapper">
+  <resultMap id="BaseResultMap" type="com.cimc.car.domain.MemberCar">
+    <!--@mbg.generated-->
+    <!--@Table member_car-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="brand_id" jdbcType="INTEGER" property="brandId" />
+    <result column="make_id" jdbcType="INTEGER" property="makeId" />
+    <result column="model_id" jdbcType="INTEGER" property="modelId" />
+    <result column="car_id" jdbcType="INTEGER" property="carId" />
+    <result column="buy_year" jdbcType="INTEGER" property="buyYear" />
+    <result column="current_mileage" jdbcType="INTEGER" property="currentMileage" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    <result column="last_update_time" jdbcType="BIGINT" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, member_id, brand_id, make_id, model_id, car_id, buy_year, current_mileage, remark, 
+    `type`, create_time, last_update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from member_car
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from member_car
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.MemberCar" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into member_car (member_id, brand_id, make_id, 
+      model_id, car_id, buy_year, 
+      current_mileage, remark, `type`, 
+      create_time, last_update_time)
+    values (#{memberId,jdbcType=BIGINT}, #{brandId,jdbcType=INTEGER}, #{makeId,jdbcType=INTEGER}, 
+      #{modelId,jdbcType=INTEGER}, #{carId,jdbcType=INTEGER}, #{buyYear,jdbcType=INTEGER}, 
+      #{currentMileage,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT}, 
+      #{createTime,jdbcType=BIGINT}, #{lastUpdateTime,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.MemberCar" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into member_car
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="memberId != null">
+        member_id,
+      </if>
+      <if test="brandId != null">
+        brand_id,
+      </if>
+      <if test="makeId != null">
+        make_id,
+      </if>
+      <if test="modelId != null">
+        model_id,
+      </if>
+      <if test="carId != null">
+        car_id,
+      </if>
+      <if test="buyYear != null">
+        buy_year,
+      </if>
+      <if test="currentMileage != null">
+        current_mileage,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="memberId != null">
+        #{memberId,jdbcType=BIGINT},
+      </if>
+      <if test="brandId != null">
+        #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="makeId != null">
+        #{makeId,jdbcType=INTEGER},
+      </if>
+      <if test="modelId != null">
+        #{modelId,jdbcType=INTEGER},
+      </if>
+      <if test="carId != null">
+        #{carId,jdbcType=INTEGER},
+      </if>
+      <if test="buyYear != null">
+        #{buyYear,jdbcType=INTEGER},
+      </if>
+      <if test="currentMileage != null">
+        #{currentMileage,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cimc.car.domain.MemberCar">
+    <!--@mbg.generated-->
+    update member_car
+    <set>
+      <if test="memberId != null">
+        member_id = #{memberId,jdbcType=BIGINT},
+      </if>
+      <if test="brandId != null">
+        brand_id = #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="makeId != null">
+        make_id = #{makeId,jdbcType=INTEGER},
+      </if>
+      <if test="modelId != null">
+        model_id = #{modelId,jdbcType=INTEGER},
+      </if>
+      <if test="carId != null">
+        car_id = #{carId,jdbcType=INTEGER},
+      </if>
+      <if test="buyYear != null">
+        buy_year = #{buyYear,jdbcType=INTEGER},
+      </if>
+      <if test="currentMileage != null">
+        current_mileage = #{currentMileage,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time = #{lastUpdateTime,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cimc.car.domain.MemberCar">
+    <!--@mbg.generated-->
+    update member_car
+    set member_id = #{memberId,jdbcType=BIGINT},
+      brand_id = #{brandId,jdbcType=INTEGER},
+      make_id = #{makeId,jdbcType=INTEGER},
+      model_id = #{modelId,jdbcType=INTEGER},
+      car_id = #{carId,jdbcType=INTEGER},
+      buy_year = #{buyYear,jdbcType=INTEGER},
+      current_mileage = #{currentMileage,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=BIGINT},
+      last_update_time = #{lastUpdateTime,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cimc.car.mapper.OperateLogMapper">
+  <resultMap id="BaseResultMap" type="com.cimc.car.domain.OperateLog">
+    <!--@mbg.generated-->
+    <!--@Table operate_log-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="operate_time" jdbcType="INTEGER" property="operateTime" />
+    <result column="operate_uid" jdbcType="INTEGER" property="operateUid" />
+    <result column="table_name" jdbcType="VARCHAR" property="tableName" />
+    <result column="table_disname" jdbcType="VARCHAR" property="tableDisname" />
+    <result column="data_id" jdbcType="BIGINT" property="dataId" />
+    <result column="operate_desc" jdbcType="VARCHAR" property="operateDesc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, operate_time, operate_uid, `table_name`, table_disname, data_id, operate_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from operate_log
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from operate_log
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.OperateLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into operate_log (operate_time, operate_uid, `table_name`, 
+      table_disname, data_id, operate_desc
+      )
+    values (#{operateTime,jdbcType=INTEGER}, #{operateUid,jdbcType=INTEGER}, #{tableName,jdbcType=VARCHAR}, 
+      #{tableDisname,jdbcType=VARCHAR}, #{dataId,jdbcType=BIGINT}, #{operateDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.OperateLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into operate_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="operateTime != null">
+        operate_time,
+      </if>
+      <if test="operateUid != null">
+        operate_uid,
+      </if>
+      <if test="tableName != null">
+        `table_name`,
+      </if>
+      <if test="tableDisname != null">
+        table_disname,
+      </if>
+      <if test="dataId != null">
+        data_id,
+      </if>
+      <if test="operateDesc != null">
+        operate_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="operateTime != null">
+        #{operateTime,jdbcType=INTEGER},
+      </if>
+      <if test="operateUid != null">
+        #{operateUid,jdbcType=INTEGER},
+      </if>
+      <if test="tableName != null">
+        #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="tableDisname != null">
+        #{tableDisname,jdbcType=VARCHAR},
+      </if>
+      <if test="dataId != null">
+        #{dataId,jdbcType=BIGINT},
+      </if>
+      <if test="operateDesc != null">
+        #{operateDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cimc.car.domain.OperateLog">
+    <!--@mbg.generated-->
+    update operate_log
+    <set>
+      <if test="operateTime != null">
+        operate_time = #{operateTime,jdbcType=INTEGER},
+      </if>
+      <if test="operateUid != null">
+        operate_uid = #{operateUid,jdbcType=INTEGER},
+      </if>
+      <if test="tableName != null">
+        `table_name` = #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="tableDisname != null">
+        table_disname = #{tableDisname,jdbcType=VARCHAR},
+      </if>
+      <if test="dataId != null">
+        data_id = #{dataId,jdbcType=BIGINT},
+      </if>
+      <if test="operateDesc != null">
+        operate_desc = #{operateDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cimc.car.domain.OperateLog">
+    <!--@mbg.generated-->
+    update operate_log
+    set operate_time = #{operateTime,jdbcType=INTEGER},
+      operate_uid = #{operateUid,jdbcType=INTEGER},
+      `table_name` = #{tableName,jdbcType=VARCHAR},
+      table_disname = #{tableDisname,jdbcType=VARCHAR},
+      data_id = #{dataId,jdbcType=BIGINT},
+      operate_desc = #{operateDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

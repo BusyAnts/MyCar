@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cimc.car.mapper.MessageSendlogMapper">
+  <resultMap id="BaseResultMap" type="com.cimc.car.domain.MessageSendlog">
+    <!--@mbg.generated-->
+    <!--@Table message_sendlog-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="message_id" jdbcType="BIGINT" property="messageId" />
+    <result column="send_time" jdbcType="BIGINT" property="sendTime" />
+    <result column="to_mid" jdbcType="BIGINT" property="toMid" />
+    <result column="received" jdbcType="INTEGER" property="received" />
+    <result column="receive_time" jdbcType="INTEGER" property="receiveTime" />
+    <result column="viewed" jdbcType="TINYINT" property="viewed" />
+    <result column="view_time" jdbcType="BIGINT" property="viewTime" />
+    <result column="view_detail" jdbcType="TINYINT" property="viewDetail" />
+    <result column="view_detail_time" jdbcType="BIGINT" property="viewDetailTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, message_id, send_time, to_mid, received, receive_time, viewed, view_time, view_detail, 
+    view_detail_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from message_sendlog
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from message_sendlog
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.MessageSendlog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into message_sendlog (message_id, send_time, to_mid, 
+      received, receive_time, viewed, 
+      view_time, view_detail, view_detail_time
+      )
+    values (#{messageId,jdbcType=BIGINT}, #{sendTime,jdbcType=BIGINT}, #{toMid,jdbcType=BIGINT}, 
+      #{received,jdbcType=INTEGER}, #{receiveTime,jdbcType=INTEGER}, #{viewed,jdbcType=TINYINT}, 
+      #{viewTime,jdbcType=BIGINT}, #{viewDetail,jdbcType=TINYINT}, #{viewDetailTime,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.MessageSendlog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into message_sendlog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="messageId != null">
+        message_id,
+      </if>
+      <if test="sendTime != null">
+        send_time,
+      </if>
+      <if test="toMid != null">
+        to_mid,
+      </if>
+      <if test="received != null">
+        received,
+      </if>
+      <if test="receiveTime != null">
+        receive_time,
+      </if>
+      <if test="viewed != null">
+        viewed,
+      </if>
+      <if test="viewTime != null">
+        view_time,
+      </if>
+      <if test="viewDetail != null">
+        view_detail,
+      </if>
+      <if test="viewDetailTime != null">
+        view_detail_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="messageId != null">
+        #{messageId,jdbcType=BIGINT},
+      </if>
+      <if test="sendTime != null">
+        #{sendTime,jdbcType=BIGINT},
+      </if>
+      <if test="toMid != null">
+        #{toMid,jdbcType=BIGINT},
+      </if>
+      <if test="received != null">
+        #{received,jdbcType=INTEGER},
+      </if>
+      <if test="receiveTime != null">
+        #{receiveTime,jdbcType=INTEGER},
+      </if>
+      <if test="viewed != null">
+        #{viewed,jdbcType=TINYINT},
+      </if>
+      <if test="viewTime != null">
+        #{viewTime,jdbcType=BIGINT},
+      </if>
+      <if test="viewDetail != null">
+        #{viewDetail,jdbcType=TINYINT},
+      </if>
+      <if test="viewDetailTime != null">
+        #{viewDetailTime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cimc.car.domain.MessageSendlog">
+    <!--@mbg.generated-->
+    update message_sendlog
+    <set>
+      <if test="messageId != null">
+        message_id = #{messageId,jdbcType=BIGINT},
+      </if>
+      <if test="sendTime != null">
+        send_time = #{sendTime,jdbcType=BIGINT},
+      </if>
+      <if test="toMid != null">
+        to_mid = #{toMid,jdbcType=BIGINT},
+      </if>
+      <if test="received != null">
+        received = #{received,jdbcType=INTEGER},
+      </if>
+      <if test="receiveTime != null">
+        receive_time = #{receiveTime,jdbcType=INTEGER},
+      </if>
+      <if test="viewed != null">
+        viewed = #{viewed,jdbcType=TINYINT},
+      </if>
+      <if test="viewTime != null">
+        view_time = #{viewTime,jdbcType=BIGINT},
+      </if>
+      <if test="viewDetail != null">
+        view_detail = #{viewDetail,jdbcType=TINYINT},
+      </if>
+      <if test="viewDetailTime != null">
+        view_detail_time = #{viewDetailTime,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cimc.car.domain.MessageSendlog">
+    <!--@mbg.generated-->
+    update message_sendlog
+    set message_id = #{messageId,jdbcType=BIGINT},
+      send_time = #{sendTime,jdbcType=BIGINT},
+      to_mid = #{toMid,jdbcType=BIGINT},
+      received = #{received,jdbcType=INTEGER},
+      receive_time = #{receiveTime,jdbcType=INTEGER},
+      viewed = #{viewed,jdbcType=TINYINT},
+      view_time = #{viewTime,jdbcType=BIGINT},
+      view_detail = #{viewDetail,jdbcType=TINYINT},
+      view_detail_time = #{viewDetailTime,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

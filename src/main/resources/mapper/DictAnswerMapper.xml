@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cimc.car.mapper.DictAnswerMapper">
+  <resultMap id="BaseResultMap" type="com.cimc.car.domain.DictAnswer">
+    <!--@mbg.generated-->
+    <!--@Table dict_answer-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="weight_id" jdbcType="INTEGER" property="weightId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="en_name" jdbcType="VARCHAR" property="enName" />
+    <result column="adjust_value" jdbcType="INTEGER" property="adjustValue" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, weight_id, `name`, en_name, adjust_value
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from dict_answer
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from dict_answer
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.DictAnswer" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into dict_answer (weight_id, `name`, en_name, 
+      adjust_value)
+    values (#{weightId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{enName,jdbcType=VARCHAR}, 
+      #{adjustValue,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cimc.car.domain.DictAnswer" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into dict_answer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="weightId != null">
+        weight_id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="enName != null">
+        en_name,
+      </if>
+      <if test="adjustValue != null">
+        adjust_value,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="weightId != null">
+        #{weightId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="enName != null">
+        #{enName,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustValue != null">
+        #{adjustValue,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cimc.car.domain.DictAnswer">
+    <!--@mbg.generated-->
+    update dict_answer
+    <set>
+      <if test="weightId != null">
+        weight_id = #{weightId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="enName != null">
+        en_name = #{enName,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustValue != null">
+        adjust_value = #{adjustValue,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cimc.car.domain.DictAnswer">
+    <!--@mbg.generated-->
+    update dict_answer
+    set weight_id = #{weightId,jdbcType=INTEGER},
+      `name` = #{name,jdbcType=VARCHAR},
+      en_name = #{enName,jdbcType=VARCHAR},
+      adjust_value = #{adjustValue,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
